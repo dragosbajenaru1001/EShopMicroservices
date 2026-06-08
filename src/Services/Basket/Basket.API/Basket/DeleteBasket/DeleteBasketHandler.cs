@@ -12,12 +12,11 @@
         }
     }
 
-    public class DeleteBasketCommandHandler : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
+    public class DeleteBasketCommandHandler(IBasketRepository repository) : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
     {
         public async Task<DeleteBasketResult> Handle(DeleteBasketCommand request, CancellationToken cancellationToken)
         {
-            // ToDo: delete basket from database and cache
-            // session.delete
+            await repository.DeleteBasket(request.UserName, cancellationToken);
 
             return new DeleteBasketResult(true);
         }
