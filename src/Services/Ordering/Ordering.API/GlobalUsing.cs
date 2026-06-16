@@ -11,3 +11,5 @@ global using Ordering.API;
 global using Ordering.Application;
 global using Ordering.Infrastructure;
 global using Ordering.Infrastructure.Data.Extensions;
+global using BuildingBlocks.Pagination;
+global using Ordering.Application.Orders.Queries.GetOrders;
