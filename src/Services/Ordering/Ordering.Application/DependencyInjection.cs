@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.FeatureManagement;
 
 namespace Ordering.Application
 {
@@ -13,6 +14,8 @@ namespace Ordering.Application
                 cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
                 cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
             });
+
+            services.AddFeatureManagement();
 
             services.AddMessageBroker(configuration, Assembly.GetExecutingAssembly());
 
